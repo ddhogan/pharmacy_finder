@@ -28,9 +28,9 @@ class PharmacyFinder::CLI
 			
 			if choice.to_i > 0
 				my_store = @stores[choice.to_i-1]
-				puts "#{my_store.name} - #{my_store.address} - #{my_store.distance}"
-				puts "  #{my_store.hours}, #{my_store.phone}"
-				puts "  #{my_store.url}"
+				puts "    #{my_store.name} - #{my_store.address} - #{my_store.distance}"
+				puts "      #{my_store.hours}, #{my_store.phone}"
+				puts "      #{my_store.url}"
 			elsif choice == "list"
 				list_stores
 			else

@@ -2,12 +2,7 @@ class PharmacyFinder::Store
 	attr_accessor :name, :address, :distance, :hours, :phone, :url
 
 	def self.all
-	#returns a bunch of instances of Store
-	# 	puts <<-DOC
-	# 1. Rite Aid at 123 Exeter Rd.
-	# 2. CVS at 5 West Rd.
-	# 3. Target at 37 Portsmouth Dr.
-	# 	DOC
+
 	store_1 = self.new
 	store_1.name = "Rite Aid"
 	store_1.address = "123 Exeter Rd."
@@ -35,4 +30,14 @@ class PharmacyFinder::Store
 	[store_1, store_2, store_3]
 	end
 
+	def self.scrape_stores
+		# go to the Rite Aid site, find the first location
+		# extract properties
+		# instantiate a Store object
+		# push it into an array
+
+		# go to CVS, do the same things, push to array
+
+		# go to Target, do the same things, push to array
+	end
 end
