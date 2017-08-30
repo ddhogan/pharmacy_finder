@@ -14,11 +14,6 @@ class PharmacyFinder::CLI
 	end
 
 	def list_locations
-		puts <<-DOC
-	1. Rite Aid at 123 Exeter Rd.
-	2. CVS at 5 West Rd.
-	3. Target at 37 Portsmouth Dr.
-		DOC
 		@locations = PharmacyFinder::Store.all
 	end
 

@@ -6,12 +6,12 @@ require "pharmacy_finder/version"
 Gem::Specification.new do |spec|
   spec.name          = "pharmacy_finder"
   spec.version       = PharmacyFinder::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["<github email address>"]
+  spec.authors       = ["Donna Hogan"]
+  spec.email         = ["<donnamcla@gmail.com>"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "This is a practice CLI Gem for the Flatiron School."
+  spec.description   = "It selects the closest location from each of 3 drugstores, and allows users to view information about them."
+  spec.homepage      = "https://github.com/ddhogan/pharmacy_finder"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
