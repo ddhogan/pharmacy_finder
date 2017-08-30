@@ -1,8 +1,12 @@
 # PharmacyFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pharmacy_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem prompts the user for a zip code, and returns a list of the closest location of 3 different retail pharmacy/drugstores (in the US only).
+The user can then select a location to get more information about it, such as distance, hours, and address.
 
-TODO: Delete this and the text above, and describe your gem
+To appreciate, please suspend some sensible concerns: 
+	* people don't live at zipcodes, they live at addresses
+	* Walgreen's is not on the list because it's store finder website is wicked hard for me to scrape.
+	* In some zip codes, the closes one or two locations may belong to the same chain of drustores, and this list would not tell you about those.
 
 ## Installation
 

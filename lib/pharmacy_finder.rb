@@ -1,6 +1,8 @@
-require "pharmacy_finder/version"
+#environment
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 
-module PharmacyFinder
-  # Your code goes here...
-  puts "Here are your local drug stores!"
-end
+require_relative "./pharmacy_finder/version"
+require_relative "./pharmacy_finder/CLI"
+#require_relative "./pharmacy_finder/anotherfile"
