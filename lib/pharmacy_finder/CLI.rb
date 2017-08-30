@@ -8,13 +8,16 @@ class PharmacyFinder::CLI
 	Here are your local drugstores:
 	---------------------------
 		DOC
-		list_locations
+		list_stores
 		menu
 		goodbye
 	end
 
-	def list_locations
-		@locations = PharmacyFinder::Store.all
+	def list_stores
+		@stores = PharmacyFinder::Store.all
+		@stores.each.with_index(1) do |store, i|
+			puts "#{i}. #{store.name} - #{store.address} - #{store.distance}"
+		end
 	end
 
 	def menu
@@ -22,17 +25,13 @@ class PharmacyFinder::CLI
 		while choice != "exit"
 			puts "Select a location to get more info (or you can type list or exit):"
 			choice = gets.strip.downcase
-			case choice
-			when "1"
-				puts "More info about location 1"
-			when "2"
-				puts "More info about location 2"
-			when "3"
-				puts "More info about location 3"
-			when "list"
-				list_locations
+			
+			if choice.to_i > 0
+				puts @stores[choice.to_i-1]
+			elsif choice == "list"
+				list_stores
 			else
-				puts "Please try again, or type list or exit."
+				puts "Please try again, or type list or exit." unless choice == "exit"
 			end
 		end
 	end
