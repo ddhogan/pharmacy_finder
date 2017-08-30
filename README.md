@@ -4,9 +4,9 @@ This gem prompts the user for a zip code, and returns a list of the closest loca
 The user can then select a location to get more information about it, such as distance, hours, and address.
 
 To appreciate, please suspend some sensible concerns: 
-	* people don't live at zipcodes, they live at addresses
-	* Walgreen's is not on the list because it's store finder website is wicked hard for me to scrape.
-	* In some zip codes, the closes one or two locations may belong to the same chain of drustores, and this list would not tell you about those.
+* people don't live at zipcodes, they live at addresses
+* Walgreen's is not on the list because its store finder page is wicked hard for me to scrape.
+* In some zip codes, the closes one or two locations may belong to the same chain of drustores, and this list would not tell you about those.
 
 ## Installation
 
