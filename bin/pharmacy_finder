@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+PharmacyFinder::CLI.new.call
