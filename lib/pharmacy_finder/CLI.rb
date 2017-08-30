@@ -19,6 +19,7 @@ class PharmacyFinder::CLI
 	2. CVS at 5 West Rd.
 	3. Target at 37 Portsmouth Dr.
 		DOC
+		@locations = PharmacyFinder::Store.all
 	end
 
 	def menu
