@@ -1,3 +1,9 @@
+To Do:
+1. Fix formatting in Rite-Aid hours
+2. store the scraped info the first time so it doesn't have to be scraped with every call to list_stores
+3. Allow user to input zip-codes which will be used in the url that gets searched
+
+
 What is a location?
 - It has a name
 - It has an address
@@ -6,6 +12,7 @@ What is a location?
 - It has hours
 - It has a URL for store details
 
+	# Dummy data
     # store_1 = self.new
 	# store_1.name = "Rite Aid"
 	# store_1.address = "123 Exeter Rd."
