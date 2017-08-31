@@ -1,6 +1,8 @@
 # the CLI controller
 
 class PharmacyFinder::CLI
+	attr_accessor :stores
+	
 	def call
 		puts <<-DOC
 	---------------------------
@@ -14,7 +16,7 @@ class PharmacyFinder::CLI
 	end
 
 	def list_stores
-		@stores = PharmacyFinder::Store.all
+		@stores = PharmacyFinder::Store.scrape_stores
 		@stores.each.with_index(1) do |store, i|
 			puts "#{i}. #{store.name} - #{store.address} - #{store.distance}"
 		end
