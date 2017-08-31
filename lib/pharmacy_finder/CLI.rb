@@ -1,24 +1,33 @@
 # the CLI controller
 
 class PharmacyFinder::CLI
-	attr_accessor :stores
+	attr_accessor :stores, :zipcode
+	@@zipcode = nil
 	
 	def call
 		puts <<-DOC
-	---------------------------
-	Welcome to Pharmacy Finder!
-	Here are your local drugstores:
-	---------------------------
+---------------------------
+Welcome to Pharmacy Finder!
+Please enter your 5 digit US zip code:
+---------------------------
 		DOC
+		zipcode
 		list_stores
 		menu
 		goodbye
 	end
 
+	def self.zipcode
+		@@zipcode = gets.strip
+	end
+
 	def list_stores
 		@stores = PharmacyFinder::Store.scrape_stores
+		puts ""
+		puts "Here is your nearest drugstore of a certain popular chain:"
 		@stores.each.with_index(1) do |store, i|
 			puts "#{i}. #{store.name} - #{store.address} - is #{store.distance} away."
+			puts ""
 		end
 	end
 
