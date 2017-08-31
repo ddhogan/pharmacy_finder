@@ -1,22 +1,12 @@
 To Do:
-1. Fix formatting in Rite-Aid hours
-2. store the scraped info the first time so it doesn't have to be scraped with every call to list_stores
-3. Allow user to input zip-codes which will be used in the url that gets searched
-
-Maybe:
-4. Sort the list by distance
-5. Add a third store?
+1. store the scraped info the first time so it doesn't have to be scraped with every call to list_stores
+2. Sort the list by distance
+3. Add a second or third store?  Why can't two finish when either one by themselves would?
+4. Prevent it from breaking with invalid zipcode entries.
 
 
-What is a location?
-- It has a name
-- It has an address
-- It has a distance
-- It has a phone number
-- It has hours
-- It has a URL for store details
 
-	# Dummy data
+# Dummy data
     # store_1 = self.new
 	# store_1.name = "Rite Aid"
 	# store_1.address = "123 Exeter Rd."
