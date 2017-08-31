@@ -22,7 +22,7 @@ Please enter your 5 digit US zip code:
 	end
 
 	def list_stores
-		@stores = PharmacyFinder::Store.scrape_stores
+		@stores ||= PharmacyFinder::Store.scrape_stores
 		puts ""
 		puts "Here is your nearest drugstore of a certain popular chain:"
 		@stores.each.with_index(1) do |store, i|

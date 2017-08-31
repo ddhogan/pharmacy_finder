@@ -1,5 +1,5 @@
 To Do:
-1. store the scraped info the first time so it doesn't have to be scraped with every call to list_stores
+1. Refactor the scraping and the stores into two different objects?
 2. Sort the list by distance
 3. Add a second or third store?  Why can't two finish when either one by themselves would?
 4. Prevent it from breaking with invalid zipcode entries.
