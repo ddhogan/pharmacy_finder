@@ -33,17 +33,9 @@ class PharmacyFinder::Store
 	def self.scrape_stores
 		stores = []
 		stores << self.scrape_riteaid
-		# stores << self.scrape_cvs
+		stores << self.scrape_cvs
 		# stores << self.scrape_target
 
-		# go to the Rite Aid site, find the first location
-		# extract properties
-		# instantiate a Store object
-		# push it into an array
-
-		# go to CVS, do the same things, push to array
-
-		# go to Target, do the same things, push to array
 		stores
 	end
 
@@ -63,18 +55,18 @@ class PharmacyFinder::Store
 		riteaid
 	end
 
-	def self.scrape_riteaid
+	def self.scrape_cvs
 		doc = Nokogiri::HTML(open("https://www.cvs.com/store-locator/store-locator-landing.jsp?_requestid=03857"))
 		binding.pry		
-		# cvs = self.new
+		cvs = self.new
 		
-		# cvs.name = doc.search("").first.text
-		# cvs.address = doc.search("").first.text
-		# cvs.distance = doc.search("").first.text
-		# cvs.hours = doc.search("").first.text
-		# cvs.phone = doc.search("").first.text
-		# cvs.url = doc.search("").first.attr("href")
+		cvs.name = "CVS"
+		cvs.name = doc.search(".address-link").first.text.strip.gsub("\t","").gsub("\r", "")
+		cvs.distance = doc.search(".distance-miles").first.text.strip.gsub("\t","").gsub("\n", "").gsub("\r","")
+		cvs.hours = doc.search(".store_alert_hidden")[1].text
+		cvs.phone = doc.search("a.tel_phone_number").first.text.gsub("\r", "").gsub("\t","").gsub("\n","").gsub("Contact number","")
+		cvs.url = doc.search(".address-link").first.attr("href")
 		
-		# cvs
+		cvs
 	end
 end
