@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply run `bin/pharmacy_finder` in your terminal, and follow the prompts.
 
 ## Development
 

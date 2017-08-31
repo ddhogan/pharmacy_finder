@@ -23,7 +23,7 @@ class PharmacyFinder::Store
 		riteaid.distance = doc.search(".map-it-distance").first.text.strip
 		riteaid.hours = doc.search(".location-info-hours-pharmacy").first.text.strip # ok, but need to fix the formatting here
 		riteaid.phone = doc.search(".location-info-phone .visible-xs").first.text.strip
-		riteaid.url = doc.search("a.location-title-link").first.attr("href").strip
+		riteaid.url = "https://locations.riteaid.com" + doc.search("a.location-title-link").first.attr("href").strip.gsub("..","")
 		
 		riteaid
 	end
@@ -32,13 +32,13 @@ class PharmacyFinder::Store
 		doc = Nokogiri::HTML(open("https://www.cvs.com/store-locator/store-locator-landing.jsp?_requestid=03857"))		
 		
 		cvs = self.new
-		
+		# binding.pry
 		cvs.name = "CVS"
-		cvs.name = doc.search(".address-link").first.text.strip.gsub("\t","").gsub("\r", "")
+		cvs.address = doc.search(".address-link").first.text.strip.gsub("\t","").gsub("\r", "").gsub("\n", " ").gsub("dummy text", "")
 		cvs.distance = doc.search(".distance-miles").first.text.strip.gsub("\t","").gsub("\n", "").gsub("\r","")
 		cvs.hours = doc.search(".store_alert_hidden")[1].text.strip
 		cvs.phone = doc.search("a.tel_phone_number").first.text.strip.gsub("\r", "").gsub("\t","").gsub("\n","").gsub("Contact number","")
-		cvs.url = doc.search(".address-link").first.attr("href").strip
+		cvs.url = "https://www.cvs.com" + doc.search(".address-link").first.attr("href").strip
 		
 		cvs
 	end

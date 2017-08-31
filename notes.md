@@ -3,6 +3,10 @@ To Do:
 2. store the scraped info the first time so it doesn't have to be scraped with every call to list_stores
 3. Allow user to input zip-codes which will be used in the url that gets searched
 
+Maybe:
+4. Sort the list by distance
+5. Add a third store?
+
 
 What is a location?
 - It has a name

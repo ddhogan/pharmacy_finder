@@ -18,7 +18,7 @@ class PharmacyFinder::CLI
 	def list_stores
 		@stores = PharmacyFinder::Store.scrape_stores
 		@stores.each.with_index(1) do |store, i|
-			puts "#{i}. #{store.name} - #{store.address} - #{store.distance}"
+			puts "#{i}. #{store.name} - #{store.address} - is #{store.distance} away."
 		end
 	end
 
