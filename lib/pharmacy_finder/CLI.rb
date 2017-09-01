@@ -37,7 +37,7 @@ Please enter your 5 digit US zip code:
 			puts "Select a location to get more info (or you can type list or exit):"
 			choice = gets.strip.downcase
 			
-			if choice.to_i > 0
+			if choice.to_i > 0 && choice.to_i <= @stores.size
 				my_store = @stores[choice.to_i-1]
 				puts "    #{my_store.name} - #{my_store.address} - #{my_store.distance}"
 				puts "      #{my_store.hours}, #{my_store.phone}"
