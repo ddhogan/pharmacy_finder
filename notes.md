@@ -1,9 +1,8 @@
 To Do:
-1. Refactor the scraping and the stores into two different objects?
-2. Sort the list by distance
+1. Prevent it from breaking with invalid zipcode entries. 
+2. Refactor the scraping and the stores into two different objects?
 3. Add a second or third store?  Why can't two finish when either one by themselves would?
-4. Prevent it from breaking with invalid zipcode entries.
-
+4. Sort the list by distance
 
 
 # Dummy data
@@ -32,3 +31,18 @@ To Do:
 	# store_3.url = "https://www.target.com/store-locator/find-stores?address=03857"
 
 	# [store_1, store_2, store_3]
+
+Target (none of this works)
+	# def self.scrape_target
+	# 	doc ||= Nokogiri::HTML(open("https://www.target.com/store-locator/find-stores?address=#{PharmacyFinder::CLI.zipcode}"))		
+		
+	# 	target ||= self.new
+	# 	binding.pry
+	# 	target.name ||= doc.xpath("//*[@id="store-2530"]/h3/text()").first.text.strip
+	# 	target.address ||= doc.search(".link link-grayDarkest link-underline").first.text.strip
+		
+	# 	target.hours ||= doc.search("p.h-text-greenDark").first.text.strip
+	# 	target.phone ||= doc.search("a.link.link-grayDarkest.link-underline").first.text.strip.
+	# 	target.url ||= "https://www.target.com/store-locator/find-stores?address=#{PharmacyFinder::CLI.zipcode}"
+	# 	target
+	# end
