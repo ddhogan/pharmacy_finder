@@ -12,17 +12,19 @@ Please enter your 5 digit US zip code:
 ---------------------------
 		DOC
 		zipcode
+		PharmacyFinder::Store.scrape_stores(@@zipcode)
 		list_stores
 		menu
 		goodbye
 	end
 
-	def self.zipcode
+	def zipcode
+
 		@@zipcode = gets.strip
 	end
 
 	def list_stores
-		@stores ||= PharmacyFinder::Store.scrape_stores
+		@stores = PharmacyFinder::Store.all
 		puts ""
 		puts "Here is your nearest drugstore of a certain popular chain:"
 		@stores.each.with_index(1) do |store, i|
