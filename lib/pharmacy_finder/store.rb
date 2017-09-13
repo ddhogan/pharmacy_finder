@@ -18,7 +18,7 @@ class PharmacyFinder::Store
 
 	def self.scrape_riteaid(zipcode)
 		doc ||= Nokogiri::HTML(open("https://locations.riteaid.com/locations/search.html?q=#{zipcode}"))
-		doc.search(".location-list-result.js-location-result")[0..9].each do |riteaid|
+		doc.search(".location-list-result.js-location-result")[0..4].each do |riteaid|
 			store ||= self.new
 			store.name ||= riteaid.search("h4.location-title").text.strip
 			store.address ||= riteaid.search(".c-address-street-1").text.strip
@@ -37,11 +37,11 @@ class PharmacyFinder::Store
 
 	def self.scrape_cvs(zipcode)
 		doc ||= Nokogiri::HTML(open("https://www.cvs.com/store-locator/store-locator-landing.jsp?_requestid=#{zipcode}"))		
-		doc.search(".searchResult")[0..9].each do |cvs|
+		doc.search(".searchResult")[0..4].each do |cvs|
 			store ||= self.new
 			store.name = "CVS"
 			store.address ||= cvs.search(".address-link").text.strip.gsub("\t","").gsub("\r", "").gsub("\n", " ").gsub("dummy text", "")
-			store.distance ||= cvs.search(".distance-miles").text.strip.gsub("\t","").gsub("\n", "").gsub("\r","")
+			store.distance ||= cvs.search(".distance-miles").text.strip.gsub("mi", " mi").gsub("\t","").gsub("\n", "").gsub("\r","")
 			store.hours ||= cvs.search(".store_alert_hidden")[1].text.strip
 			store.phone ||= cvs.search("a.tel_phone_number").text.strip.gsub("\r", "").gsub("\t","").gsub("\n","").gsub("Contact number","")
 			store.url ||= "https://www.cvs.com" + cvs.search(".address-link").attr("href").value
