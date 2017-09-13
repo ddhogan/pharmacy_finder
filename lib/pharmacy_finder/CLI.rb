@@ -42,9 +42,9 @@ Please enter your 5 digit US zip code:
 			if choice.to_i > 0 && choice.to_i <= @stores.size
 				my_store = @stores[choice.to_i-1]
 				puts "    #{my_store.name} - #{my_store.address} - #{my_store.distance}"
-				puts "        #{my_store.hours}"
-				puts "        Tel: #{my_store.phone}"
-				puts "        #{my_store.url}"
+				puts "    ----#{my_store.hours}"
+				puts "    ----Tel: #{my_store.phone}"
+				puts "    ----#{my_store.url}"
 			elsif choice == "list"
 				list_stores
 			else
@@ -54,6 +54,7 @@ Please enter your 5 digit US zip code:
 	end
 
 	def goodbye
-		puts "Thank you for using Pharmacy Finder!"
+		puts "Thank you for using Pharmacy Finder!
+		"
 	end
 end

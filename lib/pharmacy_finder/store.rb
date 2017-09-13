@@ -28,7 +28,7 @@ class PharmacyFinder::Store
 			store.distance ||= distance_holder[0..(distance_holder.size)/2-1]
 
 			# hours needs work for legibility
-			store.hours ||= riteaid.search('div.location-info-hours-mobile-wrap').text.gsub("DayMonTueWedThursFriSatSunPharmacyDay of the Week", "").gsub("Hours", "Hours ").gsub("y", "y ").gsub("PM", "PM ")
+			store.hours ||= riteaid.search('div.location-info-hours-mobile-wrap').text.gsub("DayMonTueWedThursFriSatSunPharmacyDay of the Week", "").gsub("Hours", "Hours ").gsub("y", "y ").gsub("PM", "PM, ").strip.chop
 
 			store.phone ||= riteaid.search(".location-info-phone .visible-xs").text.strip
 			store.url ||= "https://locations.riteaid.com" + riteaid.search("a.location-title-link").attr("href").value.gsub("..","")
