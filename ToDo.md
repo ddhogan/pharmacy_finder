@@ -1,5 +1,8 @@
 To Do:
+1. add more stores? make CVS output legit..
 2. Prevent it from breaking with invalid zipcode entries. It can sometimes be difficult to tell when a zipcode is invalid...
+
+
 
 
 # Dummy data
