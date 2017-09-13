@@ -6,7 +6,7 @@ The user can then select a location to get more information about it, such as di
 To appreciate, please suspend some sensible concerns: 
 * people don't live at zipcodes, they live at addresses
 * Walgreen's is not on the list because its store finder page is wicked hard for me to scrape.
-* In some zip codes, the closes one or two locations may belong to the same chain of drustores, and this list would not tell you about those.
+* In some zip codes, the closest one or two locations may belong to the same chain of drustores, and this list would not tell you about those.
 
 ## Installation
 
@@ -26,7 +26,8 @@ Or install it yourself as:
 
 ## Usage
 
-Simply run `bin/pharmacy_finder` in your terminal, and follow the prompts.
+Simply run `bin/pharmacy_finder` in your terminal, and follow the prompts. 
+Depending on your $PATH, you may need to run `ruby bin/pharmacy_finder`.
 
 ## Development
 

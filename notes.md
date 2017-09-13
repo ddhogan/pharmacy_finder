@@ -1,8 +1,6 @@
 To Do:
-1. Prevent it from breaking with invalid zipcode entries. It can sometimes be difficult to tell when a zipcode is invalid...
-2. Refactor the scraping and the stores into two different objects?
-3. Add a second or third store?  Why can't two finish when either one by themselves would?
-4. Sort the list by distance
+1. Sort the list by distance
+2. Prevent it from breaking with invalid zipcode entries. It can sometimes be difficult to tell when a zipcode is invalid...
 
 
 # Dummy data
