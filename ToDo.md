@@ -1,5 +1,4 @@
 To Do:
-1. Sort the list by distance
 2. Prevent it from breaking with invalid zipcode entries. It can sometimes be difficult to tell when a zipcode is invalid...
 
 
