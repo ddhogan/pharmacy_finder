@@ -31,7 +31,7 @@ Please enter your 5 digit US zip code:
 			a.distance.gsub("mi", "").strip.to_f <=> b.distance.gsub("mi", "").strip.to_f
 		end
 		puts ""
-		puts "Here are your nearest drugstores of two popular chains:"
+		puts "Here are the nearest locations of two popular drugstore chains:"
 
 		@sorted_stores.each.with_index(1) do |store, i|
 			puts "#{i}. #{store.name} - #{store.address} - is #{store.distance} away."

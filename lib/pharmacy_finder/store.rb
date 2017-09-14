@@ -14,6 +14,7 @@ class PharmacyFinder::Store
 	def self.scrape_stores(zipcode)
 		self.scrape_riteaid(zipcode)
 		self.scrape_cvs(zipcode)
+		# self.scrape_target(zipcode)
 	end
 
 	def self.scrape_riteaid(zipcode)
@@ -26,10 +27,8 @@ class PharmacyFinder::Store
 			distance_holder ||= riteaid.search(".map-it-distance").text.strip
 			# removes the repeated part from distance
 			store.distance ||= distance_holder[0..(distance_holder.size)/2-1]
-
-			# hours needs work for legibility
+			
 			store.hours ||= riteaid.search('div.location-info-hours-mobile-wrap').text.gsub("DayMonTueWedThursFriSatSunPharmacyDay of the Week", "").gsub("Hours", "Hours ").gsub("y", "y ").gsub("PM", "PM, ").strip.chop
-
 			store.phone ||= riteaid.search(".location-info-phone .visible-xs").text.strip
 			store.url ||= "https://locations.riteaid.com" + riteaid.search("a.location-title-link").attr("href").value.gsub("..","")
 		end
@@ -47,4 +46,10 @@ class PharmacyFinder::Store
 			store.url ||= "https://www.cvs.com" + cvs.search(".address-link").attr("href").value
 		end
 	end
+
+	# def self.scrape_target(zipcode)
+	# 	doc ||= Nokogiri::HTML(open("https://www.target.com/store-locator/find-stores?address=03857"))
+	# 	binding.pry
+	# 	doc.search(".card.card-store")
+	# end
 end
