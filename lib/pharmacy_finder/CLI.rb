@@ -1,7 +1,7 @@
 # the CLI controller
 
 class PharmacyFinder::CLI
-	attr_accessor :stores, :sorted_stores, :zipcode
+	attr_accessor :zipcode
 	@@zipcode = nil
 	
 	def call
@@ -12,28 +12,21 @@ Please enter your 5 digit US zip code:
 ---------------------------
 		DOC
 		zipcode
-		PharmacyFinder::Store.scrape_stores(@@zipcode)
+		PharmacyFinder::Scraper.scrape_stores(@@zipcode)
 		list_stores
 		menu
 		goodbye
 	end
 
 	def zipcode
-
 		@@zipcode = gets.strip
 	end
 
 	def list_stores
-		@stores = PharmacyFinder::Store.all
-		
-		@sorted_stores = []
-		@sorted_stores = @stores.sort do |a, b|
-			a.distance.gsub("mi", "").strip.to_f <=> b.distance.gsub("mi", "").strip.to_f
-		end
 		puts ""
 		puts "Here are the nearest locations of two popular drugstore chains:"
 
-		@sorted_stores.each.with_index(1) do |store, i|
+		PharmacyFinder::Store.sort_stores_by_distance.each.with_index(1) do |store, i|
 			puts "#{i}. #{store.name} - #{store.address} - is #{store.distance} away."
 			puts ""
 		end
@@ -45,8 +38,8 @@ Please enter your 5 digit US zip code:
 			puts "Select a location to get more info (or you can type list or exit):"
 			choice = gets.strip.downcase
 			
-			if choice.to_i > 0 && choice.to_i <= @sorted_stores.size
-				my_store = @sorted_stores[choice.to_i-1]
+			if choice.to_i > 0 && choice.to_i <= PharmacyFinder::Store.sort_stores_by_distance.size
+				my_store = PharmacyFinder::Store.sort_stores_by_distance[choice.to_i-1]
 				puts "    #{my_store.name} - #{my_store.address} - #{my_store.distance}"
 				puts "    ----#{my_store.hours}"
 				puts "    ----Tel: #{my_store.phone}"
